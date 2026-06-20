@@ -2,7 +2,7 @@
 
 # 🎙️ VoiceFlow
 
-### Private, offline voice-to-text for Windows — **3.6% word error rate, 100% on-device**
+### Private, offline - HIPAA Compliant voice-to-text for Windows — **3.6% word error rate, 100% on-device**
 
 Press **`Ctrl + Shift + Space`**, speak, and your words are typed into whatever app you're using —
 cleaned up by a **finetuned on-device LLM**. No cloud, no API keys, no audio or text ever leaves your machine.
