@@ -4,6 +4,10 @@ on:
   push:
     tags: ["v*"]
 
+# Allow the workflow's GITHUB_TOKEN to create the GitHub Release and upload assets.
+permissions:
+  contents: write
+
 jobs:
   build-windows:
     runs-on: windows-latest
