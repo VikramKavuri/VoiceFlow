@@ -1,0 +1,18 @@
+torch>=2.0.0
+onnx-asr[cpu,hub]>=0.8.0
+onnxruntime!=1.24.1
+silero-vad>=5.0
+sounddevice>=0.4.6
+scipy>=1.10.0
+numpy>=1.24.0
+comtypes>=1.4.0
+# v2 text injector additions (all optional — injector degrades gracefully without them)
+pywin32>=306        # app classification (get_foreground_process)
+pynput>=1.7.6       # char-by-char RDP fallback injection
+pyperclip>=1.8.2    # cross-platform clipboard helper (used by bench script)
+comtypes>=1.4.0     # Windows UIAutomation context capture
+llama-cpp-python>=0.3.0  # local GGUF formatter backend (Qwen3/Llama via llama.cpp)
+kenlm>=0.2.0             # n-gram LM rescoring (C-extension; Python ≤3.12 only — falls back to arpa on 3.13+)
+arpa>=0.1.0b2            # pure-Python ARPA reader fallback
+pyloudnorm>=0.1.1        # EBU R128 loudness normalization; falls back to RMS if absent
+jiwer>=3.0.0             # WER measurement — test/dev only, not in PyInstaller spec

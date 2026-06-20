@@ -1,0 +1,37 @@
+# Default vocabulary for VocabularyCorrector.
+# One canonical term per line. Lines starting with # are comments.
+# Optional CSV form: spoken,canonical (the canonical is the right side).
+#
+# Add domain-specific proper nouns here so ASR keeps their spelling/casing.
+VoiceFlow
+Voice Flow,VoiceFlow
+voice flow,VoiceFlow
+GitHub
+JavaScript
+TypeScript
+Python
+SQL
+API
+JSON
+HTTPS
+URL
+URI
+GPU
+CPU
+GUI
+CLI
+Slack
+GitHub
+Google
+Microsoft
+Anthropic
+Claude
+OpenAI
+ChatGPT
+HIPAA
+Sarah
+John
+Q1
+Q2
+Q3
+Q4

@@ -1,0 +1,26 @@
+[project]
+name = "voiceflow-sidecar"
+version = "1.0.0"
+description = "VoiceFlow Transcriptor Python sidecar - local speech-to-text pipeline"
+requires-python = ">=3.11"
+dependencies = [
+    "numpy>=1.24.0",
+    "sounddevice>=0.4.6",
+    "torch>=2.0.0",
+    "onnx-asr[cpu,hub]>=0.8.0",
+    "onnxruntime!=1.24.1",
+    "silero-vad>=5.1",
+    "comtypes>=1.4.0; platform_system == 'Windows'",
+]
+
+[project.optional-dependencies]
+llm = [
+    "llama-cpp-python>=0.3.0",
+]
+
+[project.scripts]
+voiceflow-sidecar = "main:main"
+
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
