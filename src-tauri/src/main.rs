@@ -248,11 +248,16 @@ fn main() {
                 if let Err(e) = mgr.spawn(&app_handle_setup) {
                     eprintln!("[setup-complete] spawn failed: {}", e);
                 }
-                let s = app_handle_setup
-                    .state::<std::sync::Mutex<crate::settings::VoiceFlowSettings>>();
-                if let Ok(guard) = s.lock() {
-                    let hk = guard.hotkey.clone();
-                    drop(guard);
+                // Read the hotkey into an owned String in a tight scope so the
+                // State + MutexGuard borrows are fully released before we call
+                // register_hotkey (which borrows app_handle_setup again).
+                let hk: Option<String> = {
+                    let settings_state = app_handle_setup
+                        .state::<std::sync::Mutex<crate::settings::VoiceFlowSettings>>();
+                    let hk = settings_state.lock().ok().map(|g| g.hotkey.clone());
+                    hk
+                };
+                if let Some(hk) = hk {
                     let _ = hotkey::register_hotkey(&app_handle_setup, &hk);
                 }
             });
