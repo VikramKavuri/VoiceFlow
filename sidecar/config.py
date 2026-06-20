@@ -112,9 +112,11 @@ class PostProcessConfig:
     vad_min_silence_ms: int = 300
     # LLM rolling context
     llm_rolling_context_sentences: int = 3
-    # Diagnostic logging (writes one .txt file per session to ./diagnostics/;
-    # OFF in production / HIPAA mode; flip on for manual debugging)
-    diagnostic_logging_enabled: bool = True
+    # Diagnostic logging (writes one .txt file per session to ./diagnostics/).
+    # OFF by default to uphold the zero-disk-writes / HIPAA-conscious guarantee —
+    # transcripts must never be persisted in production. Flip on only for local
+    # debugging on non-sensitive audio.
+    diagnostic_logging_enabled: bool = False
     diagnostic_log_dir: Optional[str] = None  # None → ./diagnostics/ next to sidecar
 
 
